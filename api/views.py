@@ -1,7 +1,9 @@
+from datetime import datetime
 from random import randint
 
-from django.conf import settings
+from django.core.cache import cache
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.utils import simplejson as json
 
 from api.models import Roll
@@ -12,8 +14,6 @@ def roll(request):
     """
     Generate dice rolls for any number of standard size dice.
     """
-    context = { 'settings': settings }
-
     requested_dice = {}
 
     for die in DICE.keys(): 
@@ -27,10 +27,27 @@ def roll(request):
 
     results['sum'] = sum([sum(v) for v in results.values()])
 
+    now = datetime.utcnow()
+
+    results['timestamp'] = now.isoformat()
+
+    roll = Roll.objects.create(results=results, timestamp=now)
+    results['id'] = roll.id
+
+    cache.add(Roll.get_cache_key(roll.id), results)
+
     return HttpResponse(json.dumps(results))
 
-def recall(request):
+def recall(request, id):
     """
     Recall any previous dice roll.
     """
-    pass
+    results = cache.get(Roll.get_cache_key(id))
+
+    if not results:
+        roll = get_object_or_404(Roll, pk=id)
+        results = roll.results
+
+        cache.add(Roll.get_cache_key(id), results)
+
+    return HttpResponse(json.dumps(results))
