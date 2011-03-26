@@ -23,7 +23,7 @@ def roll(request):
     results = {}
 
     for die, count in requested_dice.items():
-        results[die] = [randint(1, DICE[die]) for i in range(0, count)]
+        results[die] = [randint(1, DICE[die]) for i in range(count)]
 
     results['sum'] = sum([sum(v) for v in results.values()])
 

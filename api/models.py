@@ -6,6 +6,6 @@ class Roll(models.Model):
     results = JSONField()
     timestamp = models.DateTimeField()
 
-    @classmethod
-    def get_cache_key(cls, id):
+    @staticmethod
+    def get_cache_key(id):
         return 'roll-%s' % id

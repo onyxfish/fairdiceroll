@@ -3,13 +3,18 @@ version: 1
 runtime: python
 api_version: 1
 
+builtins:
+- remote_api: on
+
 handlers:
 - url: /_ah/stats/.*
   script: djangoappengine/appstats/ui.py
 
-- url: /media/admin
-  static_dir: django/contrib/admin/media
-  expiration: '0'
+- url: /css
+  static_dir: assets/css
+
+- url: /js
+  static_dir: assets/js
 
 - url: /.*
   script: djangoappengine/main/main.py
