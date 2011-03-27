@@ -2,6 +2,9 @@ from djangoappengine.settings_base import *
 
 import os
 
+DEBUG = False
+TEMPLATE_DEBUG = False
+
 SECRET_KEY = '=r-$b*8hglm+858&9tq43hlm6-&6-3d3vfc4((7yd0dbrakhvi'
 
 INSTALLED_APPS = (
