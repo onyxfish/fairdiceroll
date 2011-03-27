@@ -2,7 +2,12 @@
 
 {% block content %}
 You are home.
+<div id="results" style="display:none;">
+    <p>You rolled a <span class="number"></span> on a <span class="die"></span>.</p>
+    <p>Roll made at <span class="timestamp"></span> (<span class="age"></span> ago).</p>
+</div>
 {% endblock %}
 {% block extra_foot %}
+<script type="text/javascript" src="/js/iso8601.js"></script>
 <script type="text/javascript" src="/js/roll.js"></script>
 {% endblock %}
