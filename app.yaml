@@ -16,5 +16,9 @@ handlers:
 - url: /js
   static_dir: assets/js
 
+- url: /favicon.ico
+  static_files: assets/root/favicon.ico
+  upload: assets/root/favicon.ico
+
 - url: /.*
   script: djangoappengine/main/main.py

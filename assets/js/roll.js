@@ -2,7 +2,6 @@ var DICE = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
 
 function roll(dice) {
     $("#results").hide();
-    $("#rolling .die").text("1" + _(dice).keys()[0]);
     $("#rolling").show();
 
     $.ajax({
@@ -24,6 +23,13 @@ function recall_roll(id) {
             render_roll(data);
         }
     });
+}
+
+function update_twitter_link(number, rolled) {
+    $("#results .twitter-share-button").attr("href",
+        "http://twitter.com/home?status=" + 
+        encodeURIComponent
+            ("I rolled " + number + " on " + rolled + ". " + location.href + " (@fairdiceroll)"));
 }
 
 function render_roll(data) {
@@ -94,9 +100,11 @@ function render_roll(data) {
     $("#results .number").text(number);
     $("#results .die").text(rolled);
     $("#results .age").text(age);
+    update_twitter_link(number, rolled);
 
     $("#rolling").hide();
     $("#results").show();
+    document.title = number + " on " + rolled;
 }
 
 $(function() {
