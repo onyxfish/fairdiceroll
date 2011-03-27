@@ -29,7 +29,7 @@ def roll(request):
 
     now = datetime.utcnow()
 
-    results['timestamp'] = now.isoformat()
+    results['timestamp'] = now.isoformat() + 'Z'
 
     roll = Roll.objects.create(results=results, timestamp=now)
     results['id'] = roll.id

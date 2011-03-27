@@ -42,9 +42,9 @@ function render_roll(data) {
     now = new Date();
 
     timestamp = new Date();
-    timestamp.setTime(Date.parse(data["timestamp"]));
+    timestamp.setTime(parse_iso8601(data["timestamp"]));
 
-    delta = timestamp - now;
+    delta = now - timestamp;
 
     second = 1000;
     minute = second * 60;
@@ -55,34 +55,36 @@ function render_roll(data) {
         age = Math.floor(delta / day);
 
         if (age > 1) {
-            age += " day";
+            age += " day ago";
         } else {
-            age += " days";
+            age += " days ago";
         }
     } else if (delta > hour) {
         age = Math.floor(delta / hour);
 
         if (age == 1) {
-            age += " hour";
+            age += " hour ago";
         } else {
-            age += " hours";
+            age += " hours ago";
         }
     } else if (delta > minute) {
         age = Math.floor(delta / minute);
 
         if (age == 1) {
-            age += " minute";
+            age += " minute ago";
         } else {
-            age += " minutes";
+            age += " minutes ago";
         }
     } else if (delta > second) {
-        age = Math.floor(delta / minute);
+        age = Math.floor(delta / second);
 
         if (age == 1) {
-            age += " second";
+            age += " second ago";
         } else {
-            age += " days";
+            age += " seconds ago";
         }
+    } else {
+        age = "just now";
     }
 
     $("#results .number").text(number);
