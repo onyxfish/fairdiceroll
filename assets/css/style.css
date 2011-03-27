@@ -16,7 +16,7 @@ html, body {
 #header h1 .subhead {font-size: 30px; font-family:monospace;}
 
 #content-wrapper {
-    padding-bottom:140px;
+    padding-bottom:150px;
     width: 960px;
     margin: 0 auto;
 }
@@ -65,7 +65,7 @@ html, body {
 #footer {
     width: 960px;
     margin: 0 auto;
-    margin-top: -140px;
-    height: 140px;
+    margin-top: -150px;
+    height: 150px;
     clear: both;
 }
