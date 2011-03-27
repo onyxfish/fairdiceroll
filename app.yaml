@@ -1,5 +1,5 @@
 application: fairdiceroll
-version: 1
+version: 2
 runtime: python
 api_version: 1
 
@@ -7,6 +7,18 @@ builtins:
 - remote_api: on
 
 handlers:
+- url: /favicon.ico
+  static_files: assets/root/favicon.ico
+  upload: assets/root/favicon.ico
+
+- url: /sitemap.xml
+  static_files: assets/root/sitemap.xml
+  upload: assets/root/sitemap.xml
+
+- url: /robots.txt
+  static_files: assets/root/robots.txt
+  upload: assets/root/robots.txt
+
 - url: /_ah/stats/.*
   script: djangoappengine/appstats/ui.py
 
@@ -15,14 +27,6 @@ handlers:
 
 - url: /js
   static_dir: assets/js
-
-- url: /favicon.ico
-  static_files: assets/root/favicon.ico
-  upload: assets/root/favicon.ico
-
-- url: /sitemap.xml
-  static_files: assets/root/sitemap.xml
-  upload: assets/root/sitemap.xml
 
 - url: /.*
   script: djangoappengine/main/main.py
