@@ -20,5 +20,9 @@ handlers:
   static_files: assets/root/favicon.ico
   upload: assets/root/favicon.ico
 
+- url: /sitemap.xml
+  static_files: assets/root/sitemap.xml
+  upload: assets/root/sitemap.xml
+
 - url: /.*
   script: djangoappengine/main/main.py

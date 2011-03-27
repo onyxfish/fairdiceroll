@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>{% block title %}Fair Dice Roll{% endblock %}</title>
+        <meta name="google-site-verification" content="xWB19ziywFrxploXnzjHbN0hLF6cFf-Qy5krDVTA2EM" />
         <link rel="stylesheet" type="text/css" href="/css/960/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/960/text.css" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
@@ -27,6 +28,8 @@
         </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="/js/underscore-min.js"></script>
+        {% block extra_foot %}
+        {% endblock %}
         <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-22332348-1']);
@@ -38,7 +41,5 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
          })();
         </script>
-        {% block extra_foot %}
-        {% endblock %}
     </body>
 </html>
