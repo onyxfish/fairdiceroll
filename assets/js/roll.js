@@ -1,9 +1,9 @@
-function roll() {
+var DICE = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
+
+function roll(dice) {
     $.ajax({
         url: '/api/roll/',
-        data: {
-            'd6': 2
-        },
+        data: dice, 
         dataType: 'json',
         success: function(data) {
             render_roll(data);
@@ -23,8 +23,21 @@ function recall_roll(id) {
 }
 
 function render_roll(data) {
-    die = "d6";
-    number = data["d6"][0];
+    rolled = [];
+
+    _(DICE).each(function(die) {
+        if (die in data) {
+            rolled.push(data[die].length + die);
+        }
+    });
+
+    if (rolled.length > 1) {
+        rolled = rolled.join(" + ");
+    } else {
+        rolled = rolled[0];
+    }
+
+    number = data["sum"];
 
     now = new Date();
 
@@ -73,7 +86,7 @@ function render_roll(data) {
     }
 
     $("#results .number").text(number);
-    $("#results .die").text(die);
+    $("#results .die").text(rolled);
     $("#results .timestamp").text(timestamp.toDateString());
     $("#results .age").text(age);
 

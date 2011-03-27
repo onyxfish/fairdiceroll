@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-You are home.
+<a href="javascript:roll({'d4':1});">Roll 1d4</a>
+<a href="javascript:roll({'d6':1});">Roll 1d6</a>
+<a href="javascript:roll({'d8':1});">Roll 1d8</a>
+<a href="javascript:roll({'d10':1});">Roll 1d10</a>
+<a href="javascript:roll({'d12':1});">Roll 1d12</a>
+<a href="javascript:roll({'d20':1});">Roll 1d20</a>
 <div id="results" style="display:none;">
-    <p>You rolled a <span class="number"></span> on a <span class="die"></span>.</p>
+    <p>You rolled <span class="number"></span> on <span class="die"></span>.</p>
     <p>Roll made at <span class="timestamp"></span> (<span class="age"></span> ago).</p>
 </div>
 {% endblock %}

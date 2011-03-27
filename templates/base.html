@@ -2,14 +2,30 @@
 <html>
     <head>
         <title>{% block title %}Fair Dice Roll{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="/css/960/reset.css" />
+        <link rel="stylesheet" type="text/css" href="/css/960/text.css" />
+        <link rel="stylesheet" type="text/css" href="/css/960/960.css" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         {% block extra_head %}
         {% endblock %}
     </head>
     <body>
-        {% block content %}
-        {% endblock %}
+        <div class="container_12">
+            <div class="grid_12">
+                <h1>Fair Dice Roll</h1>
+            </div>
+            <div class="clear"></div>
+            <div class="grid_12">
+            {% block content %}
+            {% endblock %}
+            </div>
+            <div class="clear"></div>
+            <div class="grid_12">
+                Footer goes here.
+            </div>
+        </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/underscore-min.js"></script>
         {% block extra_foot %}
         {% endblock %}
     </body>
