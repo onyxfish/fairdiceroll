@@ -1,6 +1,10 @@
 var DICE = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
 
 function roll(dice) {
+    $("#results").hide();
+    $("#rolling .die").text("1" + _(dice).keys()[0]);
+    $("#rolling").show();
+
     $.ajax({
         url: '/api/roll/',
         data: dice, 
@@ -91,6 +95,7 @@ function render_roll(data) {
     $("#results .die").text(rolled);
     $("#results .age").text(age);
 
+    $("#rolling").hide();
     $("#results").show();
 }
 
@@ -98,6 +103,6 @@ $(function() {
     if (window.location.hash != "") {
         recall_roll(window.location.hash.substring(1));
     } else {
-        //roll();
+        roll({'d6':1});
     }
 });
