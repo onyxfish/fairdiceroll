@@ -10,7 +10,6 @@ function roll(dice) {
         dataType: 'json',
         success: function(data) {
             render_roll(data);
-            window.location.hash = data['id']
         }
     });
 }
@@ -29,7 +28,7 @@ function update_twitter_link(number, rolled) {
     $("#results .twitter-share-button").attr("href",
         "http://twitter.com/home?status=" + 
         encodeURIComponent
-            ("I rolled " + number + " on " + rolled + ". " + location.href + " (@fairdiceroll)"));
+            ("I rolled " + number + " on " + rolled + ". " + window.location.href + " (@fairdiceroll)"));
 }
 
 function render_roll(data) {
@@ -100,6 +99,7 @@ function render_roll(data) {
     $("#results .number").text(number);
     $("#results .die").text(rolled);
     $("#results .age").text(age);
+    window.location.hash = data['id']
     update_twitter_link(number, rolled);
 
     $("#rolling").hide();
