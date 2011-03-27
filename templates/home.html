@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="javascript:roll({'d4':1});">Roll 1d4</a>
-<a href="javascript:roll({'d6':1});">Roll 1d6</a>
-<a href="javascript:roll({'d8':1});">Roll 1d8</a>
-<a href="javascript:roll({'d10':1});">Roll 1d10</a>
-<a href="javascript:roll({'d12':1});">Roll 1d12</a>
-<a href="javascript:roll({'d20':1});">Roll 1d20</a>
+<div id="dice-controls">
+    <button id="d4" class="die" onclick="roll({'d4':1});">1d4</button>
+    <button id="d6" class="die" onclick="roll({'d6':1});">1d6</button>
+    <button id="d8" class="die" onclick="roll({'d8':1});">1d8</button>
+    <button id="d10" class="die" onclick="roll({'d10':1});">1d10</button>
+    <button id="d12" class="die" onclick="roll({'d12':1});">1d12</button>
+    <button id="d20" class="die" onclick="roll({'d20':1});">1d20</button>
+</div>
 <div id="results" style="display:none;">
-    <p>You rolled <span class="number"></span> on <span class="die"></span>.</p>
-    <p>Roll made at <span class="timestamp"></span> (<span class="age"></span>).</p>
+    <div class="roll">You rolled <span class="number"></span> on <span class="die"></span></div>
+    <div class="footnote">Roll made <span class="age"></span>.</div>
 </div>
 {% endblock %}
 {% block extra_foot %}

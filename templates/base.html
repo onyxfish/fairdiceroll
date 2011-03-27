@@ -4,25 +4,27 @@
         <title>{% block title %}Fair Dice Roll{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="/css/960/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/960/text.css" />
-        <link rel="stylesheet" type="text/css" href="/css/960/960.css" />
+        <!--<link rel="stylesheet" type="text/css" href="/css/960/960.css" />-->
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         {% block extra_head %}
         {% endblock %}
     </head>
     <body>
-        <div class="container_12">
-            <div class="grid_12">
-                <h1>Fair Dice Roll</h1>
+        <div id="not-footer">
+            <div id="header">
+                <h1>Fair Dice Roll <span class="subhead">// guaranteed to be random</span></h1>
             </div>
-            <div class="clear"></div>
-            <div class="grid_12">
+            <div id="content-wrapper">
             {% block content %}
             {% endblock %}
             </div>
-            <div class="clear"></div>
-            <div class="grid_12">
-                Footer goes here.
-            </div>
+        </div>       
+        <div id="footer">
+            fairdiceroll.com is an <a href="http://twitter.com/onyxfish">@onyxfish</a> hack.<br />
+            Joke courtesy Randall Munroe / <a href="http://xkcd.com/221/">XKCD 221</a>.<br />
+            Hosted on <a href="http://code.google.com/appengine/">App Engine.</a><br />
+            Source on <a href="TKTK">on Github</a>.<br />
+            We've got an <a href="http://fairdiceroll.com/api/roll?d6=1">API</a>.
         </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="/js/underscore-min.js"></script>

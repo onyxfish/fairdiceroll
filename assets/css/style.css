@@ -1,0 +1,63 @@
+html, body {
+    height: 100%;
+}
+
+#not-footer {
+    min-height: 100%;
+}
+
+#header {
+    width: 960px;
+    margin: 0 auto;
+    margin-top:20px;
+}
+
+#header h1 {font-size: 60px;}
+#header h1 .subhead {font-size: 30px; font-family:monospace;}
+
+#content-wrapper {
+    padding-bottom:140px;
+    width: 960px;
+    margin: 0 auto;
+}
+
+#dice-controls {
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#dice-controls .die {
+    width: 16%;
+}
+
+#results {
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+#results .roll {
+    font-size: 48px;
+    text-align: center;
+}
+
+#results .roll .number {font-size:64px; font-weight:bold;}
+#results .roll. .die {font-weight: bold;}
+
+#results .footnote {
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+}
+
+#footer {
+    width: 960px;
+    margin: 0 auto;
+    margin-top: -140px;
+    height: 140px;
+    clear: both;
+}
+
+
+
+

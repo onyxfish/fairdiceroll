@@ -89,7 +89,6 @@ function render_roll(data) {
 
     $("#results .number").text(number);
     $("#results .die").text(rolled);
-    $("#results .timestamp").text(timestamp.toDateString());
     $("#results .age").text(age);
 
     $("#results").show();
