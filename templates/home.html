@@ -2,12 +2,43 @@
 
 {% block content %}
 <div id="dice-controls">
-    <button id="d4" class="die" onclick="roll({'d4':1});">1d4</button>
-    <button id="d6" class="die" onclick="roll({'d6':1});">1d6</button>
-    <button id="d8" class="die" onclick="roll({'d8':1});">1d8</button>
-    <button id="d10" class="die" onclick="roll({'d10':1});">1d10</button>
-    <button id="d12" class="die" onclick="roll({'d12':1});">1d12</button>
-    <button id="d20" class="die" onclick="roll({'d20':1});">1d20</button>
+    <div class="wrapper">
+        <button id="d4" class="die" onclick="roll({'d4':get_die_count('d4')});">1d4</button><br />
+        <button class="dec" onclick="decrement_die_count('d4');">-</button>
+        <button class="inc" onclick="increment_die_count('d4');">+</button>
+    </div>
+    <div class="wrapper">
+        <button id="d6" class="die" onclick="roll({'d6':get_die_count('d6')});">1d6</button><br />
+        <button class="dec" onclick="decrement_die_count('d6');">-</button>
+        <button class="inc" onclick="increment_die_count('d6');">+</button>
+    </div>
+    <div class="wrapper">
+        <button id="d8" class="die" onclick="roll({'d8':get_die_count('d8')});">1d8</button><br />
+        <button class="dec" onclick="decrement_die_count('d8');">-</button>
+        <button class="inc" onclick="increment_die_count('d8');">+</button>
+    </div>
+    <div class="wrapper">
+        <button id="d10" class="die" onclick="roll({'d10':get_die_count('d10')});">1d10</button><br />
+        <button class="dec" onclick="decrement_die_count('d10');">-</button>
+        <button class="inc" onclick="increment_die_count('d10');">+</button>
+    </div>
+    <div class="wrapper">
+        <button id="d12" class="die" onclick="roll({'d12':get_die_count('d12')});">1d12</button><br />
+        <button class="dec" onclick="decrement_die_count('d12');">-</button>
+        <button class="inc" onclick="increment_die_count('d12');">+</button>
+    </div>
+    <div class="wrapper">
+        <button id="d20" class="die" onclick="roll({'d20':get_die_count('d20')});">1d20</button><br />
+        <button class="dec" onclick="decrement_die_count('d20');">-</button>
+        <button class="inc" onclick="increment_die_count('d20');">+</button>
+    </div>
+    <div class="wrapper">
+        <button id="dn" class="die" onclick="roll(COUNTS);">Roll all!</button><br />
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div id="toggle-advanced">
+    <a href="javascript:show_advanced_controls();">Show advanced controls</a>
 </div>
 <div id="rolling" style="display:none;">
     ...

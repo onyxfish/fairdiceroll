@@ -27,20 +27,44 @@ html, body {
     margin-top: 20px;
 }
 
-#dice-controls .die {
-    width: 16%;
+#dice-controls .wrapper {
+    width: 13%;
+    float: left;
+    margin-left: 4px;
+}
+
+#dice-controls .wrapper:first-child {
+    margin-left: 0;
+}
+
+#dice-controls .wrapper .die {
+    width: 100%;
+}
+
+#dice-controls .wrapper .dec, #dice-controls .wrapper .inc {
+    width: 49%;
+    display: none;
+}
+
+#dice-controls #dn {
+    font-weight: bold;
+}
+
+#toggle-advanced {
+    width: 960px;
+    margin: 0 auto;
 }
 
 #rolling {
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 100px;
     font-size: 48px;
     text-align: center;
 }
 
 #results {
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 #results .roll {

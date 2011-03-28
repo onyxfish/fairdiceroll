@@ -1,4 +1,28 @@
 var DICE = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
+var COUNTS = {'d4': 1, 'd6': 1, 'd8': 1, 'd10': 1, 'd12': 1, 'd20': 1}
+
+function show_advanced_controls() {
+    $("#dice-controls .wrapper .inc, #dice-controls .wrapper .dec").show();
+    $("#toggle-advanced").hide();
+}
+
+function increment_die_count(die) {
+    COUNTS[die] += 1;
+
+    $("button#" + die).text(COUNTS[die] + die);
+}
+
+function decrement_die_count(die) {
+    if (COUNTS[die] > 0) {
+        COUNTS[die] -= 1;
+    }
+    
+    $("button#" + die).text(COUNTS[die] + die);
+}
+
+function get_die_count(die) {
+    return COUNTS[die];
+}
 
 function roll(dice) {
     $("#results").hide();
